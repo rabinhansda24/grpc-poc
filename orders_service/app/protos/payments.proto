@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package payments;
+
+service PaymentService {
+    rpc ProcessPayment (ProcessPaymentRequest) returns (ProcessPaymentResponse) {}
+    rpc GetPaymentByOrderId (GetPaymentByOrderIdRequest) returns (GetPaymentByOrderIdResponse) {}
+}
+
+message Payment {
+    int32 id = 1;
+    float amount = 2;
+    string payment_id = 3;
+}
+
+message ProcessPaymentRequest { 
+    int32 order_id = 1;
+ }
+
+message ProcessPaymentResponse { 
+    Payment payment = 1;
+ }
+
+message GetPaymentByOrderIdRequest { 
+    int32 order_id = 1;
+ }
+
+message GetPaymentByOrderIdResponse { 
+    Payment payment = 1;
+ }
+ 
+

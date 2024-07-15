@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package orders;
+
+service OrderService {
+    rpc GetOrderById (GetOrderByIdRequest) returns (GetOrderByIdResponse) {}
+    rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse) {}
+    rpc UpdateOrder (UpdateOrderRequest) returns (UpdateOrderResponse) {}
+}
+
+message Order {
+    int32 id = 1;
+    string product = 2;
+    float amount = 3;
+    bool payment_status = 4;
+}
+
+message CreateOrder {
+    string product = 1;
+    float amount = 2;
+}
+
+message UpdateOrder {
+    Order order = 1;
+}
+
+message GetOrderByIdRequest {
+    int32 id = 1;
+}
+
+message GetOrderByIdResponse {
+    Order order = 1;
+}
+
+message CreateOrderRequest {
+    CreateOrder order = 1;
+}
+
+message CreateOrderResponse {
+    Order order = 1;
+}
+
+message UpdateOrderRequest {
+    Order order = 1;
+}
+
+message UpdateOrderResponse {
+    Order order = 1;
+}

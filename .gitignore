@@ -6,3 +6,5 @@ __pycache__
 *.pyd
 *.db
 codedocs
+orders_service/.env
+orders_service/.env
